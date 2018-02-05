@@ -1,0 +1,4 @@
+<view class="container">
+  <icon type="info" size="40"/>
+  <text>敬请期待</text>
+</view>
