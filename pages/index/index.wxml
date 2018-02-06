@@ -3,7 +3,7 @@
     <block wx:for="{{jokes}}" wx:key="*this">
       <swiper-item>
         <view class="swiper-item" id="{{item.id}}">
-          <text>{{item.text}}</text>
+          <text>{{item.content}}</text>
           <view class="share_ctn">
             <button class="share_btn" open-type="share" title="分享给好友"></button>
             <text>分享给好友</text>
