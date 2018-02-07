@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="content">
+    <text class="content_text">{{content}}</text>
+    <view class="btn_ctn">
+      <view>
+        <button class="share_btn" open-type="share" title="分享给好友"></button>
+        <text>分享给好友</text>
+      </view>
+      <navigator url="/pages/home/home" open-type="switchTab" hover-class="other-navigator-hover">
+        <button class="more_btn" title="查看更多"></button>
+        <text>查看更多</text>
+      </navigator>
+    </view>
+  </view>
+</view>

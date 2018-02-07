@@ -62,5 +62,12 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  showPraise: function(){
+    console.log('showPraise');
+    wx.previewImage({
+      urls: ['https://waraimasu.com/praise.jpeg'],
+    });
   }
 })

@@ -5,23 +5,20 @@ const app = getApp()
 Page({
   data: {
     jokes: [],
-    indicatorDots: true,
-    onShareAppMessage: function (res) {
-      if (res.from === 'button') {
-        // 来自页面内转发按钮
-        console.log(res.target)
+    currentJokeIndex: 0,
+    indicatorDots: true
+  },
+  onShareAppMessage: function (res) {
+    return {
+      title: '',
+      path: '/pages/detail/detail?content=' + this.data.jokes[this.data.currentJokeIndex]['content'],
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
       }
-      return {
-        title: '自定义转发标题',
-        // path: '/page/user?id=123',
-        success: function (res) {
-          // 转发成功
-        },
-        fail: function (res) {
-          // 转发失败
-        }
-      }
-    },
+    }
   },
   onLoad: function (options) {
     let page = this;
@@ -69,5 +66,10 @@ Page({
       }
 
     })
+  },
+  setCurrentJoke: function(index){
+    this.setData({
+      currentJokeIndex: index
+    });
   }
 })

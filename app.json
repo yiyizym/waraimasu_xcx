@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/information/information"
+    "pages/home/home",
+    "pages/information/information",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,10 +17,10 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/home/home",
         "iconPath": "images/smile.png",
         "selectedIconPath": "images/smile_active.png",
-        "text": "今天"
+        "text": "笑话"
       },
       {
         "pagePath": "pages/information/information",

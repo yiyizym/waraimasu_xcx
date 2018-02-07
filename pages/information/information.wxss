@@ -1,6 +1,33 @@
-/* pages/information/information.wxss */
 .container {
+  box-sizing:border-box;  
+  height: 100vh;
+  padding: 2vh;
+}
+
+.content {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+  padding:4vh 2vh 2vh 2vh;
+  background-color: #fff;
+}
+
+.praise_ctn {
+  margin-top: 4vh;
+}
+
+.praise_ctn text {
+  display: block;
+}
+
+.operation_hint {
+  margin-top: 4vh;
+  color: #cf9b29;
+  font-size:18px;
+}
+
+.praise {
+  width: 45vh;
+  height: 45vh;
 }

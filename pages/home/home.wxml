@@ -1,9 +1,9 @@
 <view class="container">
-  <swiper indicator-dots="{{indicatorDots}}">
-    <block wx:for="{{jokes}}" wx:key="*this">
+  <swiper circular="true" bindchange="setCurrentJoke" indicator-dots="{{indicatorDots}}">
+    <block wx:for="{{jokes}}" wx:key="id">
       <swiper-item>
         <view class="swiper-item" id="{{item.id}}">
-          <text>{{item.content}}</text>
+          <text class="content">{{item.content}}</text>
           <view class="share_ctn">
             <button class="share_btn" open-type="share" title="分享给好友"></button>
             <text>分享给好友</text>

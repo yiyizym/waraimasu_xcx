@@ -1,4 +1,12 @@
 <view class="container">
-  <text>每天 5 条小笑话</text>
-  <text>后续会推出收藏、按标签浏览功能</text>
+  <view class="content">
+    <text>每天 5 条小笑话</text>
+    <text>后续会推出收藏、按标签浏览功能</text>
+
+    <view class="praise_ctn">
+      <text>想打赏支持，让它变得更好？</text>
+      <text class="operation_hint">轻点赞赏码，再长按识别</text>
+      <image class="praise" bindtap='showPraise' src="../../images/praise.jpeg"></image> 
+    </view>
+  </view>
 </view>
