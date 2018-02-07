@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/favorite/favorite",
     "pages/information/information"
   ],
   "window": {
@@ -21,12 +20,6 @@
         "iconPath": "images/smile.png",
         "selectedIconPath": "images/smile_active.png",
         "text": "今天"
-      },
-      {
-        "pagePath": "pages/favorite/favorite",
-        "iconPath": "images/favorite.png",
-        "selectedIconPath": "images/favorite_active.png",
-        "text": "收藏"
       },
       {
         "pagePath": "pages/information/information",
