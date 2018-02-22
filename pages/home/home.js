@@ -67,9 +67,9 @@ Page({
 
     })
   },
-  setCurrentJoke: function(index){
+  setCurrentJoke: function(item){
     this.setData({
-      currentJokeIndex: index
+      currentJokeIndex: item.detail.current
     });
   }
 })
