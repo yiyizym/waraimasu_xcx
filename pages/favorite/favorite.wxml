@@ -1,4 +1,18 @@
 <view class="container">
-  <icon type="info" size="40"/>
-  <text>敬请期待</text>
+  <view class="info" wx:if="{{jokes.length == 0 && fetchDone === true}}">
+    <text>你还没有收藏过笑话</text>
+  </view>
+  <swiper wx:elif="{{fetchDone === true}}" circular="true" bindchange="setCurrentJoke" indicator-dots="{{indicatorDots}}">
+    <block wx:for="{{jokes}}" wx:key="id">
+      <swiper-item>
+        <view class="swiper-item" id="{{item.id}}">
+          <text class="content">{{item.content}}</text>
+          <view class="share_ctn">
+            <button class="share_btn" open-type="share" title="分享给好友"></button>
+            <text>分享给好友</text>
+          </view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
 </view>

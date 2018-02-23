@@ -1,6 +1,4 @@
-//index.js
-//获取应用实例
-const app = getApp()
+import { request } from '../../utils/http.js'
 
 Page({
   data: {
@@ -19,6 +17,51 @@ Page({
         // 转发失败
       }
     }
+  },
+  addFavorite: function(event){
+    let page = this;
+    if (page.alreadyFavorite(event.target.dataset.id)){
+      return;
+    }
+    request({
+      url: 'https://waraimasu.com/jokes/like',
+      data: {
+        joke_id: event.target.dataset.id
+      },
+      method: 'POST',
+      success: function(res){
+        if(res.data.return_code !== 0){
+          wx.showToast({
+            title: '收藏失败，请重试',
+            icon: 'none'
+          })
+          console.log('addFavorite failed! ', res);
+          return;
+        }
+        page.updateFavorite(event.target.dataset.id);
+      }
+    })
+  },
+  updateFavorite: function(id){
+    let page = this;
+    let jokes = JSON.parse(JSON.stringify(page.data.jokes));
+    jokes.forEach((item) => {
+      if (item.id === id) {
+        item.favorite = true;
+      }
+    })
+    page.setData({
+      jokes: jokes
+    })
+  },
+  alreadyFavorite: function(id){
+    let result = false;
+    this.data.jokes.forEach((joke) => {
+      if(joke.id === id && joke.favorite){
+        result = true;
+      }
+    })
+    return result;
   },
   onLoad: function (options) {
     let page = this;
@@ -47,7 +90,7 @@ Page({
       title: '加载中...',
       mask: true
     });
-    wx.request({
+    request({
       url: 'https://waraimasu.com/jokes/list',
       header: {
         'content-type': 'application/json' // 默认值

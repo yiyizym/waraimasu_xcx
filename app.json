@@ -2,6 +2,7 @@
   "pages": [
     "pages/home/home",
     "pages/information/information",
+    "pages/favorite/favorite",
     "pages/detail/detail"
   ],
   "window": {
@@ -21,6 +22,12 @@
         "iconPath": "images/smile.png",
         "selectedIconPath": "images/smile_active.png",
         "text": "笑话"
+      },
+      {
+        "pagePath": "pages/favorite/favorite",
+        "iconPath": "images/favorite.png",
+        "selectedIconPath": "images/favorite_active.png",
+        "text": "收藏"
       },
       {
         "pagePath": "pages/information/information",

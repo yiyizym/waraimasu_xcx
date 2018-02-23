@@ -4,9 +4,15 @@
       <swiper-item>
         <view class="swiper-item" id="{{item.id}}">
           <text class="content">{{item.content}}</text>
-          <view class="share_ctn">
-            <button class="share_btn" open-type="share" title="分享给好友"></button>
-            <text>分享给好友</text>
+          <view class="btn_ctn">
+            <view>
+              <button class="share_btn" open-type="share" title="分享给好友"></button>
+              <text>分享给好友</text>
+            </view>
+            <view>
+              <button class="favorite_btn {{item.favorite ? 'active' : ''}}" data-id="{{item.id}}" bindtap='addFavorite' title="收藏"></button>
+              <text>{{item.favorite ? '已收藏' : '收藏'}}</text>
+            </view>
           </view>
         </view>
       </swiper-item>
