@@ -16,6 +16,7 @@ App({
     })
   },
   login: function() {
+    let self = this;
     wx.login({
       success: function (resp) {
         if (resp.code) {
