@@ -63,8 +63,17 @@ Page({
     })
     return result;
   },
-  onLoad: function (options) {
-    let page = this;
+  onShow: function (options) {
+    let page = this,
+        jokes = wx.getStorageSync(page.getDayKey());
+    if (!!jokes){
+      console.log('already got today\'s jokes');
+      page.setData({
+        jokes: jokes
+      });
+      return;
+    }
+    page.clearOldJokes();
     wx.getNetworkType({
       success: function(res){
         if (res.networkType === 'none'){
@@ -102,7 +111,8 @@ Page({
         }
         page.setData({
           jokes: res.data.jokes
-        })
+        });
+        page.saveJokes(res.data.jokes);
       },
       complete: function () {
         wx.hideLoading();
@@ -114,5 +124,28 @@ Page({
     this.setData({
       currentJokeIndex: item.detail.current
     });
+  },
+  getDayKey: function(){
+    return `day_key_${(new Date()).toLocaleDateString()}`;//day_key_2018/3/14
+  },
+  clearOldJokes: function(){
+    console.log('clear old jokes');
+    wx.getStorageInfo({
+      success: function(res){
+        res.keys.forEach((key) => {
+          if(key.indexOf('day_key_') !== -1){
+            wx.removeStorageSync(key)
+          }
+        })
+      }
+    })
+  },
+  saveJokes: function(jokes){
+    console.log('save jokes');
+    let page = this;
+    wx.setStorage({
+      key: page.getDayKey(),
+      data: jokes,
+    })
   }
 })
