@@ -3,7 +3,9 @@
     <block wx:for="{{jokes}}" wx:key="id">
       <swiper-item>
         <view class="swiper-item" id="{{item.id}}">
-          <text class="content">{{item.content}}</text>
+          <scroll-view style="height: 65vh;" scroll-y="true" >
+            <text class="content">{{item.content}}</text>
+          </scroll-view>
           <view class="btn_ctn">
             <view>
               <button class="share_btn" open-type="share" title="分享给好友"></button>
